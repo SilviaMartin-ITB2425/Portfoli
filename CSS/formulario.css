@@ -1,0 +1,176 @@
+/* Reset básico */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
+    grid-template-columns: 200px 1fr;  /* Índice y contenido */
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
+    gap: 10px;
+}
+
+/* Clase para la imagen del logo en el header */
+.logo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Estilo del header */
+header {
+    grid-area: header;
+    background-color: #004080;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #ffcc00;
+}
+
+/* Índice a la izquierda */
+nav {
+    grid-area: sidebar;
+    background-color: #333;
+    padding: 20px;
+    border-right: 3px solid #ffcc00;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: #ffcc00;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #444;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* Contenido central */
+main {
+    grid-area: content;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer en la parte inferior */
+footer {
+    grid-area: footer;
+    background-color: #004080;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid #ffcc00;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 60px;  /* Ancho ajustado a 20 píxeles */
+    height: 60px; /* Alto ajustado a 20 píxeles */
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);  /* Efecto de agrandar el ícono al pasar el ratón */
+}
+
+/* FORMULARIO */
+
+/* Contenedor del formulario dentro del main */
+.form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto; /* Centrado dentro del artículo */
+}
+
+/* Título del formulario */
+.form-container h2 {
+    font-size: 24px;
+    color: #004080;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Botón de envío */
+.submit-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.submit-btn:focus {
+    outline: none;
+}
