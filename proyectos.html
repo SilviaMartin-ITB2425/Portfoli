@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nayra Garcia, Sílvia Martín, Steven Zapata">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Pàgina Principal</title>
+    <link rel="stylesheet" href="CSS/proyectos.css">
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <div class="logo">
+            <!-- Imagen del logo -->
+            <img src="/imagenes/logo.jpg" alt="logo" class="logo-img">
+            <h1>El Meu Portafoli</h1>
+        </div>
+    </header>
+
+<!-- Barra de navegación (Índice) -->
+<nav>
+    <ul>
+        <!-- Menú principal con submenú para 'Índice' -->
+        <li class="menu-item">
+            <a href="index.html">Índice</a>
+            <ul class="submenu">
+                <!-- Subenlace solo para Contacte -->
+                <li><a href="contacte.html">Contacte</a></li>
+
+                <!-- Menú dentro de Índice para 'Tots els Projectes' -->
+                <li class="menu-item">
+                    <a href="proyectos.html">Tots els Projectes</a>
+                    <ul class="submenu">
+                        <li><a href="proyectos.html#projectDestacat1">Projecte 1</a></li>
+                        <li><a href="proyectos.html#projectDestacat2">Projecte 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<section class="image-carousel">
+    <h2>Proyectos Destacados</h2>
+
+    <!-- Primera fila de imágenes -->
+    <div class="carousel-row">
+        <h3 id="1">Carrusel 1: Desarrollo Web</h3>
+        <div class="carousel">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/project1.jpg" alt="Proyecto 1">
+                    </div>
+                    <div class="flip-card-back">
+                        <h4>Proyecto 1</h4>
+                        <p>Descripción breve del Proyecto 1.</p>
+                        <a href="../Projects/0369(M1) - RA3 - 1. Organització i accés als fitxers (i backups).pdf" target="_blank" class="button" class="button">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/project2.jpg" alt="Proyecto 2">
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 id="projectDestacat2">Proyecto 2</h4>
+                        <p>Descripción breve del Proyecto 2.</p>
+                        <a href="../Projects/0369(M1) - RA3 - 1. Organització i accés als fitxers (i backups).pdf" target="_blank" class="button">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Añade más flip-cards aquí -->
+        </div>
+    </div>
+
+    <!-- Segunda fila de imágenes -->
+    <div class="carousel-row">
+        <h3 id="2">Carrusel 2: Diseño Gráfico</h3>
+        <div class="carousel">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/graphic1.jpg" alt="Proyecto Gráfico 1">
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 id="projectDestacat1">Proyecto Gráfico 1</h4>
+                        <p>Descripción breve del proyecto gráfico.</p>
+                        <a href="../Projects/0369(M1) - RA3 - 1. Organització i accés als fitxers (i backups).pdf" target="_blank" class="button" class="button">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Añade más flip-cards aquí -->
+        </div>
+    </div>
+</section>
+    <!-- Pie de página -->
+  <footer>
+        <p>&copy; 2024 Nayra Garcia, Sílvia Martín, Steven Zapata. Tots els drets reservats.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="../imagenes/instagram_logo.png" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="../imagenes/twitter-icon.png" alt="Twitter" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+                <img src="../imagenes/linkedin_logo.png" alt="LinkedIn" class="social-icon">
+            </a>
+        </div>
+        <div class="reloj">
+            <p class="fecha"></p>
+            <p class="tiempo"></p>
+        </div>
+  </footer>
+</body>
+<script src="script.js"></script>
+</html>
+
