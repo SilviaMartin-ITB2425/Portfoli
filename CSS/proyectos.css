@@ -15,6 +15,7 @@ body {
     min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
 }
+
 /* Clase para la imagen del logo en el header */
 .logo-img {
     width: 150px;  /* Ancho ajustado a 150 píxeles */

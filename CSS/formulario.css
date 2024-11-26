@@ -15,7 +15,34 @@ body {
     min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
 }
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+}
 
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.toggle-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-mode:hover {
+    transform: scale(1.1);
+}
 /* Clase para la imagen del logo en el header */
 .logo-img {
     width: 150px;
