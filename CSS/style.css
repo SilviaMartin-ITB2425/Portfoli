@@ -1,4 +1,4 @@
-/* Diseño general adaptativo */
+/* Reset básico */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -6,62 +6,21 @@ body {
     background-color: #f0f0f0;
     color: #333;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
+    grid-template-columns: 200px 1fr;  /* Índice y contenido */
     grid-template-areas:
         "header header"
         "sidebar content"
         "footer footer";
-    min-height: 100vh;
+    min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
-    box-sizing: border-box;
 }
 
-/* Ajustes adaptativos generales */
-img, video {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Regla general para tamaños pequeños */
-@media screen and (max-width: 768px) {
-    body {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "content"
-            "footer";
-    }
-
-    nav {
-        display: none; /* Oculta el sidebar en dispositivos pequeños */
-    }
-
-    header, footer {
-        text-align: center;
-    }
-
-    main {
-        padding: 15px;
-    }
-}
-
-/* Mejora de diseño para pantallas pequeñas */
-@media screen and (max-width: 480px) {
-    header {
-        font-size: 1.2rem;
-        padding: 10px;
-    }
-
-    footer {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    .logo-img {
-        width: 80px;
-        height: 80px;
-    }
+/* Clase para la imagen del logo en el header */
+.logo-img {
+    width: 150px;  /* Ancho ajustado a 150 píxeles */
+    height: 150px; /* Alto ajustado a 150 píxeles */
+    object-fit: cover; /* Mantiene la imagen ajustada dentro de 150x150 píxeles */
 }
 /* Estilo del header */
 header {
