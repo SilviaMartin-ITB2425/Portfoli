@@ -7,11 +7,11 @@ body {
     color: #333;
     display: grid;
     grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
-    grid-template-columns: 1fr; /* Elimina la barra lateral fija */
+    grid-template-columns: 200px 1fr;  /* Índice y contenido */
     grid-template-areas:
-        "header"
-        "content"
-        "footer";
+        "header header"
+        "sidebar content"
+        "footer footer";
     min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
 }
@@ -34,27 +34,13 @@ header {
     border-bottom: 3px solid #ffcc00;
 }
 
-/* Barra de navegación desplegable */
+/* Índice a la izquierda */
+/* Barra de navegación */
 nav {
     background-color: #333;
-    padding: 10px;
+    padding: 20px;
+    border-right: 3px solid #ffcc00;
     font-family: Arial, sans-serif;
-    text-align: center;
-    position: relative; /* Para la navegación responsiva */
-}
-
-/* Menú desplegable para móviles */
-nav select {
-    background-color: #444;
-    color: #ffcc00;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%; /* Asegura que el menú desplegable ocupe todo el ancho */
-    margin-top: 10px; /* Añade un pequeño margen superior */
-    display: none; /* Oculto en escritorio */
 }
 
 nav ul {
@@ -145,6 +131,7 @@ nav ul li.menu-item > .submenu {
     display: none;
 }
 
+
 /* Contenido central */
 main {
     grid-area: content;
@@ -206,6 +193,7 @@ th {
     border: 2px solid #cccccc;
 }
 
+
 /* Clase para los iconos de redes sociales en el footer */
 .social-links {
     display: flex;
@@ -231,51 +219,23 @@ form button:hover {
     background-color: #004080;
 }
 
-/* Estilos para el reloj */
-.reloj {
-    font-family: 'Share Tech Mono', monospace;
+.reloj{
+    font-family: 'share tech mono', monospace;
     color: white;
     text-align: center;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(-50%,-50%);
+
 }
 
-.fecha, .tiempo {
+.fecha{
     letter-spacing: 0.1em;
     font-size: 18px;
 }
-
-/* Estilos adicionales para pantallas medianas (tabletas) */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    nav select {
-        display: block; /* Muestra el menú desplegable en tabletas */
-    }
-    
-    nav ul {
-        display: none; /* Oculta la navegación normal en tabletas */
-    }
+.tiempo{
+    letter-spacing: 0.1em;
+    font-size: 18px;
 }
-
-/* Estilos adicionales para pantallas grandes (escritorios) */
-@media screen and (min-width: 1025px) {
-    body {
-        grid-template-columns: 200px 1fr; /* Barra lateral y contenido */
-        grid-template-areas:
-            "header header"
-            "sidebar content"
-            "footer footer";
-    }
-    
-    nav {
-        grid-area: sidebar;
-        padding: 20px;
-        border-right: 3px solid #ffcc00;
-    }
-
-    nav select {
-        display: none; /* Oculta el menú desplegable en pantallas grandes */
-    }
-    
-    nav ul {
-        display: block; /* Muestra la navegación normal en escritorio */
-    }
-}
+@media screen
