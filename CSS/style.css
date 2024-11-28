@@ -7,11 +7,11 @@ body {
     color: #333;
     display: grid;
     grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
-    grid-template-columns: 200px 1fr;  /* Índice y contenido */
+    grid-template-columns: 1fr; /* Elimina la barra lateral */
     grid-template-areas:
-        "header header"
-        "sidebar content"
-        "footer footer";
+        "header"
+        "content"
+        "footer";
     min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
 }
@@ -21,47 +21,6 @@ body {
     width: 150px;  /* Ancho ajustado a 150 píxeles */
     height: 150px; /* Alto ajustado a 150 píxeles */
     object-fit: cover; /* Mantiene la imagen ajustada dentro de 150x150 píxeles */
-}
-
-/* Estilos para dispositivos con pantallas pequeñas (teléfonos) */
-@media screen and (max-width: 600px) {
-    body {
-        grid-template-columns: 1fr; /* Elimina la barra lateral fija */
-        grid-template-areas:
-            "header"
-            "content"
-            "footer";
-    }
-
-    nav {
-        padding: 10px; /* Ajusta el padding para reducir espacio */
-    }
-
-    /* Ocultar elementos principales y mostrar solo el menú desplegable */
-    nav ul li > a {
-        display: none; /* Oculta los enlaces principales del menú */
-    }
-
-    nav ul li .submenu {
-        display: block; /* Muestra el submenú por defecto */
-        position: static; /* Posición estándar para adaptarse al flujo del documento */
-        opacity: 1; /* Asegura visibilidad */
-        box-shadow: none; /* Elimina las sombras en submenús */
-    }
-
-    nav ul .submenu li a {
-        display: block; /* Asegura que los enlaces del submenú sean visibles */
-        padding: 8px 15px;
-        background-color: #444;
-        color: #ffcc00;
-        border-radius: 5px;
-        text-align: left;
-    }
-
-    nav ul .submenu li a:hover {
-        background-color: #ffcc00;
-        color: #333;
-    }
 }
 
 /* Estilo del header */
@@ -75,104 +34,23 @@ header {
     border-bottom: 3px solid #ffcc00;
 }
 
-/* Índice a la izquierda */
-/* Barra de navegación */
+/* Barra de navegación desplegable */
 nav {
-    grid-area: sidebar;
     background-color: #333;
-    padding: 20px;
-    border-right: 3px solid #ffcc00;
+    padding: 10px;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    position: relative; /* Necesario para el submenú */
-    margin-bottom: 15px;
-}
-
-nav ul li a {
-    display: block;
+nav select {
+    background-color: #444;
     color: #ffcc00;
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #444;
+    padding: 10px;
+    border: none;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-/* Cambia el color y agrega sombra al pasar el ratón */
-nav ul li a:hover {
-    background-color: #ffcc00;
-    color: #333;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-/* Estilo del submenú (desplegable) */
-nav ul .submenu {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    border-radius: 8px;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Mostrar el submenú con efecto de desvanecimiento */
-nav ul li:hover > .submenu {
-    display: block;
-    opacity: 1;
-}
-
-/* Estilo de los enlaces del submenú */
-nav ul .submenu li a {
-    padding: 12px 20px;
-    color: #ffcc00;
-    background-color: #444;
-    border-radius: 8px;
-    white-space: nowrap;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Cambia el color al pasar el ratón sobre los enlaces del submenú */
-nav ul .submenu li a:hover {
-    background-color: #ffcc00;
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo del submenú del submenú (si lo tuviera) */
-nav ul .submenu .submenu {
-    left: 100%; /* Mueve el segundo submenú hacia la derecha */
-    top: 0;
-    margin-left: 5px; /* Espacio entre el submenú principal y el submenú secundario */
-}
-
-/* El submenú de 'Índice' y 'Tots els Projectes' solo se despliega al pasar el ratón por encima */
-nav ul li.menu-item:hover > .submenu {
-    display: block;
-    opacity: 1;
-}
-
-/* Asegurarse de que los submenús no se desplieguen automáticamente */
-nav ul li.menu-item > .submenu {
-    display: none;
-}
-
 
 /* Contenido central */
 main {
@@ -235,7 +113,6 @@ th {
     border: 2px solid #cccccc;
 }
 
-
 /* Clase para los iconos de redes sociales en el footer */
 .social-links {
     display: flex;
@@ -274,23 +151,7 @@ form button:hover {
     font-size: 18px;
 }
 
-/* Estilos adicionales para pantallas medianas (tabletas) */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    body {
-        grid-template-columns: 150px 1fr;
-    }
-    
-    nav ul li {
-        margin-bottom: 10px;
-    }
-
-    nav ul li a {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    nav ul .submenu li a {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
+/* Mantener la página estática */
+html, body {
+    overflow: hidden;
 }
