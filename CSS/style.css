@@ -7,7 +7,7 @@ body {
     color: #333;
     display: grid;
     grid-template-rows: auto 1fr auto; /* Header, contenido, footer */
-    grid-template-columns: 1fr; /* Elimina la barra lateral */
+    grid-template-columns: 1fr; /* Elimina la barra lateral fija */
     grid-template-areas:
         "header"
         "content"
@@ -40,6 +40,7 @@ nav {
     padding: 10px;
     font-family: Arial, sans-serif;
     text-align: center;
+    position: relative; /* Para la navegación responsiva */
 }
 
 nav select {
@@ -50,6 +51,8 @@ nav select {
     border-radius: 8px;
     font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Asegura que el menú desplegable ocupe todo el ancho */
+    margin-top: 10px; /* Añade un pequeño margen superior */
 }
 
 /* Contenido central */
@@ -151,7 +154,119 @@ form button:hover {
     font-size: 18px;
 }
 
-/* Mantener la página estática */
-html, body {
-    overflow: hidden;
+/* Estilos adicionales para pantallas medianas (tabletas) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr; /* Elimina la barra lateral fija */
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+    }
+    
+    nav select {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Estilos adicionales para pantallas grandes (escritorios) */
+@media screen and (min-width: 1025px) {
+    nav {
+        grid-area: sidebar;
+        padding: 20px;
+        border-right: 3px solid #ffcc00;
+    }
+
+    nav select {
+        display: none; /* Oculta el menú desplegable en pantallas grandes */
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        position: relative; /* Necesario para el submenú */
+        margin-bottom: 15px;
+    }
+
+    nav ul li a {
+        display: block;
+        color: #ffcc00;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #444;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Cambia el color y agrega sombra al pasar el ratón */
+    nav ul li a:hover {
+        background-color: #ffcc00;
+        color: #333;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+    }
+
+    /* Estilo del submenú (desplegable) */
+    nav ul .submenu {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #444;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        border-radius: 8px;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mostrar el submenú con efecto de desvanecimiento */
+    nav ul li:hover > .submenu {
+        display: block;
+        opacity: 1;
+    }
+
+    /* Estilo de los enlaces del submenú */
+    nav ul .submenu li a {
+        padding: 12px 20px;
+        color: #ffcc00;
+        background-color: #444;
+        border-radius: 8px;
+        white-space: nowrap;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Cambia el color al pasar el ratón sobre los enlaces del submenú */
+    nav ul .submenu li a:hover {
+        background-color: #ffcc00;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilo del submenú del submenú (si lo tuviera) */
+    nav ul .submenu .submenu {
+        left: 100%; /* Mueve el segundo submenú hacia la derecha */
+        top: 0;
+        margin-left: 5px; /* Espacio entre el submenú principal y el submenú secundario */
+    }
+
+    /* El submenú de 'Índice' y 'Tots els Projectes' solo se despliega al pasar el ratón por encima */
+    nav ul li.menu-item:hover > .submenu {
+        display: block;
+        opacity: 1;
+    }
+
+    /* Asegurarse de que los submenús no se desplieguen automáticamente */
+    nav ul li.menu-item > .submenu {
+        display: none;
+    }
 }
