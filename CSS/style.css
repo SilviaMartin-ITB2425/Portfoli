@@ -15,7 +15,6 @@ body {
     min-height: 100vh; /* Asegura que la página ocupe toda la ventana */
     gap: 10px;
 }
-
 /* Clase para la imagen del logo en el header */
 .logo-img {
     width: 150px;  /* Ancho ajustado a 150 píxeles */
@@ -225,7 +224,7 @@ form button:hover {
     text-align: center;
     position: absolute;
     left: 10%;
-    top: 10%;
+    top: 93%;
     transform: translate(-50%,-50%);
 
 }
@@ -238,4 +237,3 @@ form button:hover {
     letter-spacing: 0.1em;
     font-size: 18px;
 }
-@media screen
