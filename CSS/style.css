@@ -1,3 +1,4 @@
+
 /* Reset básico */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,9 +19,9 @@ body {
 
 /* Clase para la imagen del logo en el header */
 .logo-img {
-    width: 150px; /* Ancho ajustado */
-    height: 150px; /* Alto ajustado */
-    object-fit: cover;
+    width: 150px;  /* Ancho ajustado a 150 píxeles */
+    height: 150px; /* Alto ajustado a 150 píxeles */
+    object-fit: cover; /* Mantiene la imagen ajustada dentro de 150x150 píxeles */
 }
 
 /* Estilo del header */
@@ -34,16 +35,15 @@ header {
     border-bottom: 3px solid #ffcc00;
 }
 
-/* Estilo de navegación */
+/* Índice a la izquierda */
+/* Barra de navegación */
 nav {
     background-color: #333;
     padding: 20px;
     border-right: 3px solid #ffcc00;
     font-family: Arial, sans-serif;
-    overflow-y: auto;
 }
 
-/* Ajustes generales */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -51,7 +51,7 @@ nav ul {
 }
 
 nav ul li {
-    position: relative;
+    position: relative; /* Necesario para el submenú */
     margin-bottom: 15px;
 }
 
@@ -66,6 +66,7 @@ nav ul li a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Cambia el color y agrega sombra al pasar el ratón */
 nav ul li a:hover {
     background-color: #ffcc00;
     color: #333;
@@ -73,9 +74,9 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
-/* Estilo para submenús */
+/* Estilo del submenú (desplegable) */
 nav ul .submenu {
-    display: none;
+    display: none; /* Oculto por defecto */
     position: absolute;
     top: 100%;
     left: 0;
@@ -87,13 +88,16 @@ nav ul .submenu {
     z-index: 10;
     opacity: 0;
     transition: opacity 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Mostrar el submenú con efecto de desvanecimiento */
 nav ul li:hover > .submenu {
     display: block;
     opacity: 1;
 }
 
+/* Estilo de los enlaces del submenú */
 nav ul .submenu li a {
     padding: 12px 20px;
     color: #ffcc00;
@@ -103,64 +107,136 @@ nav ul .submenu li a {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Cambia el color al pasar el ratón sobre los enlaces del submenú */
 nav ul .submenu li a:hover {
     background-color: #ffcc00;
     color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Diseño responsive */
-
-/* Para pantallas pequeñas */
-@media screen and (max-width: 600px) {
-    body {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "content"
-            "footer";
-    }
-
-    nav {
-        display: none; /* Oculta la barra de navegación por defecto */
-    }
-
-    /* Menú desplegable */
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background-color: #004080;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .menu-toggle:focus {
-        outline: none;
-    }
-
-    nav.show {
-        display: block; /* Muestra la barra de navegación cuando se active */
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        z-index: 1000;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
+/* Estilo del submenú del submenú (si lo tuviera) */
+nav ul .submenu .submenu {
+    left: 100%; /* Mueve el segundo submenú hacia la derecha */
+    top: 0;
+    margin-left: 5px; /* Espacio entre el submenú principal y el submenú secundario */
 }
+
+/* El submenú de 'Índice' y 'Tots els Projectes' solo se despliega al pasar el ratón por encima */
+nav ul li.menu-item:hover > .submenu {
+    display: block;
+    opacity: 1;
+}
+
+/* Asegurarse de que los submenús no se desplieguen automáticamente */
+nav ul li.menu-item > .submenu {
+    display: none;
+}
+
+
+/* Contenido central */
+main {
+    grid-area: content;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #cccccc;
+    /*border-radius: 10px;*/
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #004080;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 5px;
+}
+
+/* Footer en la parte inferior */
+footer {
+    grid-area: footer;
+    background-color: #004080;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid #ffcc00;
+}
+
+/* Tabla general */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #cccccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #e0e0e0;
+}
+
+/* Estilos para imágenes */
+.project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #cccccc;
+}
+
+
+/* Clase para los iconos de redes sociales en el footer */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 60px;  /* Ancho ajustado a 20 píxeles */
+    height: 60px; /* Alto ajustado a 20 píxeles */
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);  /* Efecto de agrandar el ícono al pasar el ratón */
+}
+
+form button:hover {
+    background-color: #004080;
+}
+
+.reloj{
+    font-family: 'share tech mono', monospace;
+    color: white;
+    text-align: center;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    transform: translate(-50%,-50%);
+
+}
+
+.fecha{
+    letter-spacing: 0.1em;
+    font-size: 18px;
+}
+.tiempo{
+    letter-spacing: 0.1em;
+    font-size: 18px;
+}
+@media screen
