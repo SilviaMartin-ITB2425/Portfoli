@@ -215,6 +215,11 @@ th {
     transform: scale(1.1);  /* Efecto de agrandar el ícono al pasar el ratón */
 }
 
+
+.social-icon:hover {
+    transform: scale(1.1);  /* Efecto de agrandar el ícono al pasar el ratón */
+}
+
 form button:hover {
     background-color: #004080;
 }
