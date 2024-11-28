@@ -16,10 +16,105 @@ body {
     gap: 10px;
 }
 
-/* Media queries para pantallas pequeñas (teléfonos) */
+/* Clase para la imagen del logo en el header */
+.logo-img {
+    width: 150px; /* Ancho ajustado */
+    height: 150px; /* Alto ajustado */
+    object-fit: cover;
+}
+
+/* Estilo del header */
+header {
+    grid-area: header;
+    background-color: #004080;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #ffcc00;
+}
+
+/* Estilo de navegación */
+nav {
+    background-color: #333;
+    padding: 20px;
+    border-right: 3px solid #ffcc00;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+/* Ajustes generales */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: #ffcc00;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #444;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    color: #333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Estilo para submenús */
+nav ul .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    border-radius: 8px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li:hover > .submenu {
+    display: block;
+    opacity: 1;
+}
+
+nav ul .submenu li a {
+    padding: 12px 20px;
+    color: #ffcc00;
+    background-color: #444;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul .submenu li a:hover {
+    background-color: #ffcc00;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Diseño responsive */
+
+/* Para pantallas pequeñas */
 @media screen and (max-width: 600px) {
     body {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
         grid-template-areas:
             "header"
             "content"
@@ -27,76 +122,45 @@ body {
     }
 
     nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #444;
+        display: none; /* Oculta la barra de navegación por defecto */
+    }
+
+    /* Menú desplegable */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #004080;
+        color: white;
+        border: none;
         padding: 10px;
-        position: fixed;
-        bottom: 0;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle:focus {
+        outline: none;
+    }
+
+    nav.show {
+        display: block; /* Muestra la barra de navegación cuando se active */
+        position: absolute;
+        top: 60px;
+        left: 0;
         width: 100%;
-        z-index: 100;
-        border-top: 3px solid #ffcc00;
+        background-color: #333;
+        z-index: 1000;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     nav ul {
         display: flex;
-        flex-direction: row;
-        gap: 15px;
+        flex-direction: column;
     }
 
     nav ul li {
-        margin: 0; /* Sin márgenes */
-        position: relative;
-    }
-
-    nav ul li a {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-
-    nav ul .submenu {
-        position: static; /* Alineación normal */
-        display: none; /* Oculto por defecto */
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px 0 0;
-        background-color: #444;
-        border-radius: 5px;
-        width: auto;
-    }
-
-    nav ul li:hover > .submenu {
-        display: flex; /* Mostrar submenú al hacer hover */
-    }
-}
-
-/* Media queries para pantallas medianas (tabletas) */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    body {
-        grid-template-columns: 150px 1fr; /* Reducir barra lateral */
-        grid-template-areas:
-            "header header"
-            "sidebar content"
-            "footer footer";
-    }
-
-    nav {
-        padding: 15px;
-    }
-
-    nav ul li a {
-        font-size: 1rem; /* Ajustar tamaño del texto */
-    }
-}
-
-/* Media queries para pantallas grandes (escritorios) */
-@media screen and (min-width: 1025px) {
-    body {
-        grid-template-columns: 200px 1fr;
-    }
-
-    nav ul li a {
-        font-size: 1.1rem; /* Incrementar el tamaño del texto */
+        margin-bottom: 10px;
     }
 }
