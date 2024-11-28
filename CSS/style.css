@@ -22,6 +22,47 @@ body {
     height: 150px; /* Alto ajustado a 150 píxeles */
     object-fit: cover; /* Mantiene la imagen ajustada dentro de 150x150 píxeles */
 }
+/* Estilos para dispositivos con pantallas pequeñas (teléfonos) */
+@media screen and (max-width: 600px) {
+    body {
+        grid-template-columns: 1fr; /* Elimina la barra lateral fija */
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+    }
+
+    nav {
+        padding: 10px; /* Ajusta el padding para reducir espacio */
+    }
+
+    /* Ocultar elementos principales y mostrar solo el menú desplegable */
+    nav ul li > a {
+        display: none; /* Oculta los enlaces principales del menú */
+    }
+
+    nav ul li .submenu {
+        display: block; /* Muestra el submenú por defecto */
+        position: static; /* Posición estándar para adaptarse al flujo del documento */
+        opacity: 1; /* Asegura visibilidad */
+        box-shadow: none; /* Elimina las sombras en submenús */
+    }
+
+    nav ul .submenu li a {
+        display: block; /* Asegura que los enlaces del submenú sean visibles */
+        padding: 8px 15px;
+        background-color: #444;
+        color: #ffcc00;
+        border-radius: 5px;
+        text-align: left;
+    }
+
+    nav ul .submenu li a:hover {
+        background-color: #ffcc00;
+        color: #333;
+    }
+}
+
 /* Estilo del header */
 header {
     grid-area: header;
