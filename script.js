@@ -54,7 +54,7 @@ document.querySelector("#contactForm").addEventListener("submit", function(e) {
     // Limpiar mensaje de error si todo es correcto
     errorElement.textContent = "";
 });
-//Poner body en oscuro del formulario
+//Poner body en claro/oscuro del formulario
 document.addEventListener('DOMContentLoaded', () => {
     const toggleModeBtn = document.getElementById('toggleMode');
 
